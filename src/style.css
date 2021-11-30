@@ -1,0 +1,247 @@
+:root {
+  /* Primary Colours */
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+/* Neutral Colors */
+
+/* Light Theme */
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-grayish-blue: hsl(233, 11%, 84%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+/* Dark Theme */
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue-dark: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue-dark: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue-dark: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue-dark-2: hsl(237, 14%, 26%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Kumbh+Sans:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Spartan:wght@500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Main Style */
+body {
+  font-size: 18px;
+}
+
+body * {
+  transition: 0.5s;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+.App header {
+  height: 300px;
+}
+
+.App main {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%); 
+  width: 600px;
+  max-width: 100%
+}
+
+.App main .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.App main .top button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+.App main .todo-input {
+  display: flex;
+  align-items: center; 
+  height: 60px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.App main .todo-input input {
+  flex: 1;
+  height: 100%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.App main .todo-input label {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid var(--very-dark-grayish-blue);
+  margin: 0px 10px 0px 25px;
+}
+
+.App main .todo-list {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.App main .todo-list .todo {
+  display: flex;
+  align-items: center; 
+  gap: 20px;
+  height: 60px;
+  padding: 20px;
+}
+
+.App main .todo-list .todo:not(:last-child) {
+  border-bottom: 1px solid var(--very-dark-grayish-blue);
+}
+
+.App main .todo-list .todo > input {
+  display: none;
+}
+
+.App main .todo-list .todo > label {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--very-dark-grayish-blue);
+  cursor: pointer;
+}
+
+.App main .todo-list .todo > label img {
+  display: none;
+}
+
+.App main .todo-list .todo.active > label {
+  background-image: var(--check-gradient);
+  border: none;
+}
+
+.App main .todo-list .todo.active > label img {
+  display: inline-block;
+}
+
+.App main .todo-list .todo.completed span {
+  text-decoration: line-through;
+}
+
+.App main nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.App main nav ul li {
+  display: inline-block;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.App main nav ul li.active {
+  color: var(--bright-blue);
+}
+
+.App main nav button {
+  padding: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  color: inherit;
+}
+
+.App main .todo-list .no-todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 20px;
+}
+
+
+/* Theme Style Dark */
+
+.App.dark {
+  background-color: var(--very-dark-blue);
+  color: var(--light-grayish-blue-dark);  
+}
+
+.App.dark header {
+  background-image: url('./assets/images/bg-desktop-dark.jpg');
+}
+
+.App.dark main .todo-input {
+  background-color: var(--very-dark-desaturated-blue);
+}
+
+.App.dark main .todo-list .todo {
+  background-color: var(--very-dark-desaturated-blue);
+}
+
+.App.dark main .todo-list .todo.completed span {
+  color: var(--very-dark-grayish-blue-dark-2);
+}
+
+.App.dark main nav {
+
+  background-color: var(--very-dark-desaturated-blue);
+  color: var(--very-dark-grayish-blue-dark);
+}
+
+/* Theme Style Light*/
+
+.App.light {
+  background-color: var(--very-light-gray);
+  color: var(--light-grayish-blue-dark);  
+}
+
+.App.light header {
+  background-image: url('./assets/images/bg-desktop-light.jpg');
+}
+
+.App.light main .todo-input {
+  background-color: var(--very-light-grayish-blue);
+}
+
+.App.light main .todo-list .todo {
+  background-color: var(--very-light-grayish-blue);
+  color: var(--very-dark-grayish-blue-dark)
+}
+
+.App.light main .todo-list .todo:not(:last-child) {
+  border-color: var(--light-grayish-blue-dark);
+}
+
+.App.light main .todo-list .todo.completed span {
+  color: var(--dark-grayish-blue);
+}
+
+.App.light main nav {
+  background-color: var(--very-light-grayish-blue);
+  color: var(--dark-grayish-blue);
+}
